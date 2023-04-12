@@ -19,7 +19,6 @@ class BlogControllerTest {
 
     @Resource
     private ArticleService articleService;
-
     @Resource
     private CommentService commentService;
 

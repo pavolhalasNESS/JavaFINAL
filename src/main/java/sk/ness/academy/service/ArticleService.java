@@ -1,9 +1,7 @@
 package sk.ness.academy.service;
 
 import java.util.List;
-
 import sk.ness.academy.domain.Article;
-
 public interface ArticleService {
 
 	  /** Returns {@link Article} with provided ID */

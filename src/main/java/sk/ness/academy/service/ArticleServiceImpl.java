@@ -1,19 +1,16 @@
 package sk.ness.academy.service;
 
 import java.util.List;
-
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
-
 import sk.ness.academy.dao.ArticleDAO;
 import sk.ness.academy.domain.Article;
 
 @Service
 @Transactional
 public class ArticleServiceImpl implements ArticleService {
-
   @Resource
   private ArticleDAO articleDAO;
 

@@ -7,7 +7,6 @@ import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
-
 import javax.sql.DataSource;
 
 public class TestDatabaseConfig {

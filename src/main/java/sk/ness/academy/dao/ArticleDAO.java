@@ -1,7 +1,6 @@
 package sk.ness.academy.dao;
 
 import java.util.List;
-
 import sk.ness.academy.domain.Article;
 
 public interface ArticleDAO {

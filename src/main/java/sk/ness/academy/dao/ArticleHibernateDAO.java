@@ -1,17 +1,13 @@
 package sk.ness.academy.dao;
 
 import java.util.List;
-
 import javax.annotation.Resource;
-
 import org.hibernate.SessionFactory;
 import org.hibernate.transform.AliasToBeanResultTransformer;
 import org.hibernate.type.StandardBasicTypes;
 import org.hibernate.type.StringType;
 import org.springframework.stereotype.Repository;
-
 import sk.ness.academy.domain.Article;
-import sk.ness.academy.dto.ArticleDTO;
 
 @Repository
 public class ArticleHibernateDAO implements ArticleDAO {
@@ -46,7 +42,6 @@ public class ArticleHibernateDAO implements ArticleDAO {
     this.sessionFactory.getCurrentSession().delete(article);
    // this.sessionFactory.getCurrentSession().flush();
   }
-
   @Override
   public List<Article> searchArticle(String searchText) {
     return this.sessionFactory.getCurrentSession()
@@ -56,5 +51,4 @@ public class ArticleHibernateDAO implements ArticleDAO {
             .setParameter("pattern3","%" + searchText + "%")
             .addEntity(Article.class).list();
   }
-
 }

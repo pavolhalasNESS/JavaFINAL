@@ -9,27 +9,19 @@ import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import sk.ness.academy.dao.ArticleDAO;
 import sk.ness.academy.domain.Article;
-import sk.ness.academy.service.ArticleServiceImpl;
-
 import java.util.ArrayList;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
 class ArticleServiceImplTest {
-
     @Mock
     private ArticleDAO articleDAO;
-
     @InjectMocks
     private ArticleServiceImpl articleService;
-
     private List<Article> articles;
     final Integer firstID = 37;
     final Integer secondID = 54;
-
     final String searchText = "amazing";
-
     @BeforeEach
     private void init() {
         System.out.println("=== Testing article service ===");
@@ -59,18 +51,15 @@ class ArticleServiceImplTest {
         Assertions.assertEquals("TestUser1", article1.getAuthor());
         Assertions.assertEquals("amazing book", article1.getText());
     }
-
     @Test
     void findAll() {
         Mockito.when(articleDAO.findAll()).thenReturn(articles);
         List<Article> articles = articleService.findAll();
         Assertions.assertEquals(2, articles.size());
-
         Assertions.assertEquals(37, articles.get(0).getId());
         Assertions.assertEquals("First book", articles.get(0).getTitle());
         Assertions.assertEquals("TestUser1", articles.get(0).getAuthor());
         Assertions.assertEquals("amazing book", articles.get(0).getText());
-
         Assertions.assertEquals(54, articles.get(1).getId());
         Assertions.assertEquals("Second book", articles.get(1).getTitle());
         Assertions.assertEquals("TestUser2", articles.get(1).getAuthor());

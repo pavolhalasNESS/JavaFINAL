@@ -10,24 +10,16 @@ import org.springframework.boot.test.context.SpringBootTest;
 import sk.ness.academy.dao.AuthorDAO;
 import sk.ness.academy.dto.Author;
 import sk.ness.academy.dto.AuthorStats;
-import sk.ness.academy.service.AuthorServiceImpl;
-
 import java.util.ArrayList;
 import java.util.List;
-
 @SpringBootTest
 class AuthorServiceImplTest {
-
     @Mock
     private AuthorDAO authorDAO;
-
     @InjectMocks
     private AuthorServiceImpl authorService;
-
     private List<Author> authors;
-
     private List<AuthorStats> authorStats;
-
     @BeforeEach
     public void init() {
         System.out.println("=== Testing author service ===");
@@ -35,19 +27,15 @@ class AuthorServiceImplTest {
         author1.setName("TestUser1");
         final Author author2 = new Author();
         author2.setName("TestUser2");
-
         authors = new ArrayList<>();
         authors.add(author1);
         authors.add(author2);
-
         final AuthorStats stats1 = new AuthorStats();
         stats1.setAuthorName("TestUser1");
         stats1.setArticleCount(11);
-
         final AuthorStats stats2 = new AuthorStats();
         stats2.setAuthorName("TestUser2");
         stats2.setArticleCount(17);
-
         authorStats = new ArrayList<>();
         authorStats.add(stats1);
         authorStats.add(stats2);
@@ -59,14 +47,12 @@ class AuthorServiceImplTest {
         final List<Author> authors = authorService.findAll();
         Assertions.assertEquals(2, authors.size());
     }
-
     @Test
     void findAllEmpty() {
         Mockito.when(authorDAO.findAll()).thenReturn(new ArrayList<>());
         final List<Author> authors = authorService.findAll();
         Assertions.assertEquals(0, authors.size());
     }
-
     @Test
     void getAuthorStats() {
         Mockito.when(authorDAO.getAuthorStats()).thenReturn(authorStats);

@@ -7,42 +7,32 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import sk.ness.academy.config.TestDatabaseConfig;
-import sk.ness.academy.domain.Article;
 import sk.ness.academy.domain.Comment;
-
 import javax.transaction.Transactional;
-
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @ContextConfiguration(classes = { TestDatabaseConfig.class, CommentHibernateDAO.class })
 @Transactional
 class CommentHibernateDAOTest {
-
     @Autowired
     private CommentDAO commentDAO;
-
     @BeforeEach
     public void beforeEach() {
         System.out.println("=== Testing comment DAO ===");
     }
-
     @Test
     void findByIDArticle() {
         final List<Comment> comments = commentDAO.findByIDArticle(4);
         Assertions.assertEquals(2,comments.size()  );
         Assertions.assertEquals(1, comments.get(0).getId());
     }
-
     @Test
     void findAll() {
         final List<Comment> comments = commentDAO.findAll();
         Assertions.assertTrue(comments.size()  > 0 );
         Assertions.assertEquals(1, comments.get(0).getId());
 }
-
     @Test
     void createArticleComment() {
         Comment comment = new Comment();;
@@ -53,7 +43,6 @@ class CommentHibernateDAOTest {
         //final List<Comment> comments = commentDAO.findAll();
         Assertions.assertEquals("random comment", comments.get(0).getText());
     }
-
     @Test
     void deleteComment() {
         Comment comment = new Comment();;

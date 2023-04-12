@@ -2,7 +2,6 @@ package sk.ness.academy.dto;
 
 import java.util.Date;
 import java.util.List;
-
 import sk.ness.academy.domain.Comment;
 
 public class ArticleDTO

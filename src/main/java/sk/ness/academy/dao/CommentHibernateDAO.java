@@ -4,8 +4,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import sk.ness.academy.domain.Article;
 import sk.ness.academy.domain.Comment;
-import sk.ness.academy.dao.CommentDAO;
-
 import javax.annotation.Resource;
 import java.util.List;
 
@@ -20,7 +18,6 @@ public class CommentHibernateDAO implements CommentDAO{
         return this.sessionFactory.getCurrentSession().createSQLQuery("select * from comments where articleid = '" + articleId + "'")
                 .addEntity(Comment.class).list();
     }
-
     @Override
     public List<Comment> findAll() {
         return this.sessionFactory.getCurrentSession().createSQLQuery("select * from comments").addEntity(Comment.class).list();
@@ -50,7 +47,6 @@ public class CommentHibernateDAO implements CommentDAO{
                     article.setComments(comments);
                 }
             }
-
     }
 
 }

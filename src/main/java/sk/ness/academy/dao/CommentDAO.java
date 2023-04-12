@@ -1,6 +1,5 @@
 package sk.ness.academy.dao;
 
-import sk.ness.academy.domain.Article;
 import sk.ness.academy.domain.Comment;
 import java.util.List;
 

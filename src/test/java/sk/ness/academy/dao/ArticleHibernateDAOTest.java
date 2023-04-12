@@ -10,16 +10,12 @@ import sk.ness.academy.config.TestDatabaseConfig;
 import sk.ness.academy.domain.Article;
 import javax.transaction.Transactional;
 import java.util.List;
-
-
 @SpringBootTest
 @ContextConfiguration(classes = { TestDatabaseConfig.class, ArticleHibernateDAO.class })
 @Transactional
 class ArticleHibernateDAOTest {
-
     @Autowired
     private ArticleDAO articleDAO;
-
     @BeforeEach
     public void beforeEach() {
         System.out.println("=== Testing article DAO ===");
@@ -31,14 +27,12 @@ class ArticleHibernateDAOTest {
         Assertions.assertEquals("Extending the Stream API to Maps", article.getTitle() );
         Assertions.assertEquals("Emil Forslund",article.getAuthor());
     }
-
     @Test
     void findAll() {
         final List<Article> articles = articleDAO.findAll();
         Assertions.assertTrue(articles.size()  > 0 );
         Assertions.assertEquals("Testing Title", articles.get(articles.size()-1).getTitle());
     }
-
     @Test
     void persist() {
         Article article = new Article();
@@ -49,7 +43,6 @@ class ArticleHibernateDAOTest {
         articleDAO.persist(article);
         Assertions.assertEquals("Testing Article",articleDAO.findByID(10).getTitle());
     }
-
     @Test
     void deleteByID() {
         Assertions.assertEquals(4,(articleDAO.findByID(4)).getId());

@@ -1,10 +1,8 @@
 package sk.ness.academy.domain;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-
 import java.util.*;
 import javax.persistence.*;
-
 @Entity
 @Table(name = "articles")
 @SequenceGenerator(name = "articles_seq_store", sequenceName = "article_seq", allocationSize = 1)

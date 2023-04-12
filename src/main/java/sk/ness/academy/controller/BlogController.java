@@ -2,7 +2,6 @@ package sk.ness.academy.controller;
 
 import java.util.List;
 import javax.annotation.Resource;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import sk.ness.academy.domain.Article;
@@ -16,13 +15,10 @@ import sk.ness.academy.service.CommentService;
 
 @RestController
 public class BlogController {
-
   @Resource
   private ArticleService articleService;
-
   @Resource
   private AuthorService authorService;
-
   @Resource
   private CommentService commentService;
 
@@ -31,7 +27,6 @@ public class BlogController {
   public List<Article> getAllArticles() {
 	  return this.articleService.findAll();
   }
-
   // ~~ Author
   @RequestMapping(value = "authors", method = RequestMethod.GET)
   public List<Author> getAllAuthors() {
@@ -66,7 +61,6 @@ public class BlogController {
       throw new RequestException(HttpStatus.NOT_FOUND, "Database with articles is empty");}
     else
     return this.authorService.getAuthorStats();
-
   }
 
   @RequestMapping(value= "articles/{articleId}", method = RequestMethod.DELETE)

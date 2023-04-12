@@ -1,7 +1,6 @@
 package sk.ness.academy.dto;
 
 public class AuthorStats {
-
 	  private String authorName;
 	  private Integer articleCount;
 

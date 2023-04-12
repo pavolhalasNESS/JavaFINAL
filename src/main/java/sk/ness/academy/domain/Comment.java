@@ -2,7 +2,6 @@ package sk.ness.academy.domain;
 
 import java.util.Date;
 import javax.persistence.*;
-
 @Entity
 @Table(name = "comments")
 @SequenceGenerator(name = "comments_seq_store", sequenceName = "comments_seq", allocationSize = 1)
@@ -11,7 +10,6 @@ public class Comment {
     public Comment() {
         this.createTimestamp = new Date();
     }
-
     @Id
     @Column(name = "commentId", unique = true, nullable = false, precision = 10, scale = 0)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "comments_seq_store")
