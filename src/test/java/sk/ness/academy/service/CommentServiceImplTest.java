@@ -9,6 +9,8 @@ import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import sk.ness.academy.dao.CommentDAO;
 import sk.ness.academy.domain.Comment;
+import sk.ness.academy.service.CommentServiceImpl;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +29,7 @@ class CommentServiceImplTest {
 
     private List<Comment> comments1 = new ArrayList<>();
 
-    private int ArticleID = 11;
+    private int ArticleID = 4;
 
     @BeforeEach
     private void init() {
@@ -49,7 +51,7 @@ class CommentServiceImplTest {
         List<Comment> comments = commentService.findAll();
         Assertions.assertEquals(1, comments.size());
         Assertions.assertEquals(1, comments.get(0).getId());
-        Assertions.assertEquals(11, comments.get(0).getArticleId());
+        Assertions.assertEquals(4, comments.get(0).getArticleId());
         Assertions.assertEquals("first comment", comments.get(0).getText());
         Assertions.assertEquals("TestUser1", comments.get(0).getAuthor());
     }

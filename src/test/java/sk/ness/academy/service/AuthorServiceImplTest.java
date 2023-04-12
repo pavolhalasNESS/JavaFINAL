@@ -10,6 +10,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import sk.ness.academy.dao.AuthorDAO;
 import sk.ness.academy.dto.Author;
 import sk.ness.academy.dto.AuthorStats;
+import sk.ness.academy.service.AuthorServiceImpl;
+
 import java.util.ArrayList;
 import java.util.List;
 

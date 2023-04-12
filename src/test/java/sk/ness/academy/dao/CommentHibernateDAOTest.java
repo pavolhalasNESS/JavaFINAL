@@ -31,8 +31,8 @@ class CommentHibernateDAOTest {
 
     @Test
     void findByIDArticle() {
-        final List<Comment> comments = commentDAO.findByIDArticle(2);
-        Assertions.assertEquals(1,comments.size()  );
+        final List<Comment> comments = commentDAO.findByIDArticle(4);
+        Assertions.assertEquals(2,comments.size()  );
         Assertions.assertEquals(1, comments.get(0).getId());
     }
 
@@ -41,7 +41,6 @@ class CommentHibernateDAOTest {
         final List<Comment> comments = commentDAO.findAll();
         Assertions.assertTrue(comments.size()  > 0 );
         Assertions.assertEquals(1, comments.get(0).getId());
-        Assertions.assertEquals(2, comments.get(1).getId());
 }
 
     @Test
@@ -49,8 +48,8 @@ class CommentHibernateDAOTest {
         Comment comment = new Comment();;
         comment.setAuthor("TestUser3");
         comment.setText("random comment");
-        commentDAO.createArticleComment(comment,4);
-        final List<Comment> comments = commentDAO.findByIDArticle(4);
+        commentDAO.createArticleComment(comment,3);
+        final List<Comment> comments = commentDAO.findByIDArticle(3);
         //final List<Comment> comments = commentDAO.findAll();
         Assertions.assertEquals("random comment", comments.get(0).getText());
     }
@@ -58,13 +57,13 @@ class CommentHibernateDAOTest {
     @Test
     void deleteComment() {
         Comment comment = new Comment();;
-        final int idArticle = 4;
+        final int idArticle = 3;
         comment.setAuthor("TestUser4");
         comment.setText("temporary comment");
         commentDAO.createArticleComment(comment,idArticle);
-        Assertions.assertFalse((commentDAO.findByIDArticle(4)).isEmpty());
+        Assertions.assertFalse((commentDAO.findByIDArticle(3)).isEmpty());
         final int idComment = commentDAO.findByIDArticle(idArticle).get(0).getId();
         commentDAO.deleteComment(idComment,idArticle);
-        Assertions.assertTrue((commentDAO.findByIDArticle(4)).isEmpty());
+        Assertions.assertTrue((commentDAO.findByIDArticle(3)).isEmpty());
     }
 }

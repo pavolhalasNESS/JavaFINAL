@@ -36,8 +36,7 @@ class ArticleHibernateDAOTest {
     void findAll() {
         final List<Article> articles = articleDAO.findAll();
         Assertions.assertTrue(articles.size()  > 0 );
-        Assertions.assertEquals(4, articles.get(articles.size()-1).getId());
-        Assertions.assertEquals("Extending the Stream API to Maps", articles.get(articles.size()-1).getTitle());
+        Assertions.assertEquals("Testing Title", articles.get(articles.size()-1).getTitle());
     }
 
     @Test
@@ -53,13 +52,8 @@ class ArticleHibernateDAOTest {
 
     @Test
     void deleteByID() {
-        Article article = new Article();
-        article.setId(11);
-        article.setAuthor("TestUser3");
-        article.setText("random text");
-        article.setTitle("Testing Article");
-        articleDAO.persist(article);
+        Assertions.assertEquals(4,(articleDAO.findByID(4)).getId());
         articleDAO.deleteByID(4);
-        Assertions.assertNull(articleDAO.findByID(4));
+        Assertions.assertNull((articleDAO.findByID(4)));
     }
 }

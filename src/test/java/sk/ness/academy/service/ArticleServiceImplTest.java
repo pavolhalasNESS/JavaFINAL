@@ -9,6 +9,8 @@ import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import sk.ness.academy.dao.ArticleDAO;
 import sk.ness.academy.domain.Article;
+import sk.ness.academy.service.ArticleServiceImpl;
+
 import java.util.ArrayList;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
